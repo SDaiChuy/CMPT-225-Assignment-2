@@ -25,7 +25,7 @@ unsigned int Stack::getElementCount() const{
 bool Stack::isEmpty() const{
     cout << "testing isEmpty()" << endl;
 
-    if(head == NULL){
+    if(head->next == NULL){
         return true;
     }
     else{
