@@ -18,46 +18,45 @@ class Stack {
             public:
                 int data;
                 StackNode * next;
-                unsigned int elementCount;
-                
         };
 
-    StackNode* head; 
+    StackNode* head;
+    unsigned int elementCount;
 /* Put your code here! */       
         
 
     public:
     
-/* Put your code here! */   
+    /* Put your code here! */   
 
-//constructors
-Stack();
+    //constructors
+    Stack();
 
-//Destructor
-~Stack();
+    //Destructor
+    ~Stack();
 
 
-//getters
-int getData() const;
+    //getters
+    int getData() const;
 
-unsigned int getElementCount() const;
+    unsigned int getElementCount() const;
 
-//setters;
-void setData(int data);
+    //setters;
+    void setData(int data);
 
-//methods
+    //methods
 
-// check to see if the stack is empty, return NULL if empty
-bool isEmpty() const;
+    // check to see if the stack is empty, return NULL if empty
+    bool isEmpty() const;
 
-// push an element onto the top of the stack
-bool push(int element);
+    // push an element onto the top of the stack
+    bool push(int element);
 
-// returns the values of the top element
-int peek() const;
+    // returns the values of the top element
+    int peek() const;
 
-// Removes the top element of the stack
-bool pop();
+    // Removes the top element of the stack
+    bool pop();
 
 
 
