@@ -23,7 +23,8 @@ unsigned int Stack::getElementCount() const{
 }
 
 bool Stack::isEmpty() const{
-    cout << "testing isEmpty()" << endl;
+    //testing purpose
+    //cout << "testing isEmpty()" << endl;
 
     if(head->next == NULL){
         return true;
@@ -34,14 +35,16 @@ bool Stack::isEmpty() const{
 }
 
 int Stack::peek() const{
-    cout << "Testing peek()" << endl;
+    //testing purpose
+    //cout << "Testing peek()" << endl;
     int top = head->data;
     return top;
 }
 
 bool Stack::pop(){
-    cout << "Testing pop()" << endl;
-    //cout << "Entering if" << endl;
+    //testing purpose
+    //cout << "Testing pop()" << endl;
+
     if(head->next != NULL){
         head = head->next;
         elementCount--;
@@ -55,12 +58,11 @@ bool Stack::pop(){
 }
 
 bool Stack::push(int newElement){
-    cout << "Testing push()" << endl;
-    //StackNode* newNode;
+    //testing purpose
+    //cout << "Testing push()" << endl;
+
    StackNode* newNode = new StackNode();
 
-    
-    cout << "element count: " << elementCount << endl;
     if(elementCount == 0){
         newNode->data = newElement;
         newNode->next = NULL;
