@@ -1,3 +1,16 @@
+/* 
+ * Stack.cpp
+ *
+ * Description: Implementation of a linked list-based Stack ADT class - SHSL list
+ * Class Invariant: LIFO order
+ *                  Top of Stack located at the back of SHSL list.
+ *
+ * Author: Steven Dai Chuy
+ * Date: October 5, 2022
+ */
+ 
+
+ 
 #include <iostream>
 #include "Stack.h"
 
