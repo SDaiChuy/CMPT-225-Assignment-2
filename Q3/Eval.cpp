@@ -3,8 +3,8 @@
  *
  * Description: Evaluation of infix expressions using two Stacks.
  *
- * Author:
- * Date:
+ * Author: Steven Dai Chuy
+ * Date: October 5, 2022
  */
 
 #include <iostream>
@@ -38,6 +38,31 @@ int main () {
 
     cout << endl;
     // End pretty printer coding demo.
+
+    while(t.tt != eof || opstack.isEmpty() != true){
+        if(t.tt == integer){
+            numstack.push(t);
+        }
+        else if(t.tt == lptok){
+            opstack.push(t);
+        }
+        
+        else if(t.tt == rptok){
+            Token top = opstack.peek();
+            if(top.tt == lptok){
+                cout << "working" << endl;
+                opstack.pop();
+            }
+            else{
+                Token x = numstack.pop();
+                Token y = numstack.pop();
+                Token op = opstack.pop();
+                
+                Token result = S.getnext() 
+            }
+        }
+
+    }
 
     return 0;
 }
