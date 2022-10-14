@@ -17,6 +17,8 @@ using std::endl;
 // Description: Constructor
 Queue::Queue() {}
 
+Queue::~Queue(){}
+
 // Description: Inserts element x at the back of Queue
 // Time Efficiency: O(1)
 void Queue::enqueue(int x) {

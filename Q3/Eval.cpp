@@ -23,100 +23,111 @@ int main () {
     
     t = S.getnext();
 
-    /*
-    // Pretty printer coding demo.  Please remove before coding
-    while (t.tt != eof) {
-        if (t.tt == integer || t.tt == lptok || t.tt == rptok) {
-            cout << t;
-        } else if (t.tt == pltok || t.tt == mitok || 
-                   t.tt == asttok || t.tt == slashtok) {
-            cout << ' ' << t << ' ';
-        }
-
-        t = S.getnext();
-    }
-
-    cout << endl;
-    // End pretty printer coding demo.
-    */
-
     while(t.tt != eof || opstack.isEmpty() != true){
         if(t.tt == integer){
-            cout << "Working" << endl;
+            cout << "pushing: " << t.val << " onto the numstack" << endl;
             numstack.push(t);
-            cout << "t: " << t << endl;
             t = S.getnext();
-            cout << "t: " << t << endl;
         }
+
         else if(t.tt == lptok){
+            cout << "Pushing: " <<  t.text << " onto the opstack" << endl;
             opstack.push(t);
-            cout << "t: " << t << endl;
             t = S.getnext();
-            cout << "t: " << t << endl;
         }
         
         else if(t.tt == rptok){
-            Token top = opstack.peek();
-            cout << "top: " << top << endl;
-            if(top.tt == lptok){
-                cout << "working" << endl;
+            if(opstack.peek().tt == lptok){
                 opstack.pop();
+                t = S.getnext();
             }
             else{
-                Token result;
                 Token x = numstack.pop();
                 Token y = numstack.pop();
                 Token op = opstack.pop();
-                
-                cout << "x.val: " << x.val << endl; 
+                Token result;
+                result.tt = integer;
+
+                if(op.tt == pltok){
+                    result.val = y.val + x.val;
+                }
+                else if(op.tt == mitok){
+                    result.val = y.val - x.val;
+                }
+                else if(op.tt == asttok){
+                    result.val = y.val * x.val;
+                }
+                else if(op.tt == slashtok){
+                    result.val = y.val / x.val;
+                }
+                cout << "Pushing result: " << result.val << " onto the numstack" << endl;
                 numstack.push(result);
-                cout << "t: " << t << endl;
-                t = S.getnext();
-                cout << "t: " << t << endl;
+
             }
         }
-        else if(t.tt == pltok || t.tt == mitok || t.tt == eof ){
-            cout << "Working1 " << endl;
-            TokenType top = t.tt;
-            cout << "working2 " << endl;
-            cout << "top: " << top << endl;
-            if(opstack.isEmpty() == false && top == pltok || top == mitok || top == asttok || top == slashtok ){
+        else if(t.tt == pltok || t.tt == mitok || t.tt == eof){
+            if(opstack.isEmpty() == false && (opstack.peek().tt == pltok || opstack.peek().tt == mitok || opstack.peek().tt == asttok || opstack.peek().tt == slashtok )){
                 Token result;
+                result.tt = integer;
+
                 Token x = numstack.pop();
+
                 Token y = numstack.pop();
+
                 Token op = opstack.pop();
+
+                if(op.tt == pltok){
+                    result.val = y.val + x.val;
+                }
+                else if(op.tt == mitok){
+                    result.val = y.val - x.val;
+                }
+                else if(op.tt == asttok){
+                    result.val = y.val * x.val;
+                }
+                else if(op.tt == slashtok){
+                    result.val = y.val / x.val;
+                }
+
+                cout << "pushing  " << result << " onto the numstack" << endl;;
                 numstack.push(result);
-                cout << "t: " << t << endl;
-                t = S.getnext();
-                cout << "t: " << t << endl;
             }
             else{
+                cout << "Pushing " << t.text << " onto the opstack" << endl;
                 opstack.push(t);
-                cout << "t: " << t << endl;
                 t = S.getnext();
-                cout << "t: " << t << endl;
             }
         }
         else if(t.tt == asttok || t.tt == slashtok){
-            Token top = opstack.peek();
-            cout << "top: " << top << endl;
-            if(opstack.isEmpty() == false && (top.tt == asttok || top.tt == slashtok)){
+            if(opstack.isEmpty() == false && (opstack.peek().tt == asttok || opstack.peek().tt == slashtok)){
                 Token result;
+                result.tt = integer;
                 Token x = numstack.pop();
                 Token y = numstack.pop();
                 Token op = opstack.pop();
-
+                if(op.tt == asttok){
+                    result.val = y.val * x.val;
+                }
+                else if(op.tt == slashtok){
+                    result.val = y.val / x.val;
+                }
+                cout << "pushing " << result.val << " onto the numstack" << endl;
                 numstack.push(result);
             }
             else{
+                cout << "Pushing " << t.text << " onto the opstack" << endl;
                 opstack.push(t);
-                cout << "t: " << t << endl;
                 t = S.getnext();
-                cout << "t: " << t << endl;
+        
             }
+        }   
+        else{
+            cout << "Error" << endl;
         }
 
     }
+
+    cout << "result: " << numstack.pop().val << endl;
 
     return 0;
 }

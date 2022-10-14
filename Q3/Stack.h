@@ -5,8 +5,8 @@
  *              Including the method implementations within the 
  *              header file is one way to create a template class.
  *
- * Author:
- * Date:
+ * Author: Steven Dai Chuy
+ * Date: October 5, 2022
  */
 
 /* Please, refer to Question 1 for Stack method documentation. */

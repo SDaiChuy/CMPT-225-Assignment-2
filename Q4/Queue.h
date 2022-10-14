@@ -17,7 +17,7 @@ class Queue {
 	
     private:
         static unsigned int const INITIAL_CAPACITY = 6; // Constant INITIAL_CAPACITY
-        int elements[INITIAL_CAPACITY];                 // To do: replace this by int * elements -> Question 4.a)
+        int* elements;                 // To do: replace this by int * elements -> Question 4.a)
 
         unsigned int elementCount = 0;                  // Number of elements in the Queue - if you need it!
         unsigned int capacity = INITIAL_CAPACITY;       // Actual capacity of the data structure (number of cells in the array)
