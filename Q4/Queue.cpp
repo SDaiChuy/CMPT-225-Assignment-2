@@ -49,3 +49,24 @@ int Queue::peek() const {
 bool Queue::isEmpty() const {
     return elementCount == 0;
 }
+
+
+/*
+int* resize(int* elements){
+    if(elements->capacity > INITIAL_CAPACITY){
+
+    }
+}
+
+void setCapacity(unsigned int newCapacity){
+    elements->capacity = newCapacity;
+}
+
+void setBack(unsigned int newBack){
+
+}
+
+void setFront(unsigned int newFront){
+
+}
+*/
