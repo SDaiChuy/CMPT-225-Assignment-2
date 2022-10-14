@@ -3,8 +3,8 @@
  *
  * Description: Test Driver for Stack class.
  *
- * Author:
- * Date:
+ * Author: Steven Dai Chuy
+ * Date: October 5, 2022
  */
 
 /* 
