@@ -22,7 +22,33 @@ class Queue {
         unsigned int elementCount = 0;                  // Number of elements in the Queue - if you need it!
         unsigned int capacity = INITIAL_CAPACITY;       // Actual capacity of the data structure (number of cells in the array)
         unsigned int frontindex = 0;                    // Index of front element (next dequeued/peeked element)
-        unsigned int backindex = 0;                     // Index of where the next element will be enqueued                     
+        unsigned int backindex = 0;                     // Index of where the next element will be enqueued     
+
+        //Check to see if the queue is empty
+        bool isFull() const;
+
+        //Sets the capacity to the new capacity
+        void setCapacity(unsigned int newCapacity);
+
+        //Sets the back index to the new back index
+        void setBack(unsigned int newBack);
+
+        //Sets the front index to the new front index
+        void setFront(unsigned int newFront);   
+        
+        //Returns the capacity of the queue
+        int getCapacity() const;    
+
+        //Returns the front index of the queue
+        int getFront() const;   
+
+        //Returns the back index of the queue
+        int getBack() const;
+
+        int* resize(int* elements);
+
+
+        
 
         /* You can add private methods. */
 
@@ -47,7 +73,11 @@ class Queue {
         // Description: Constructor
         Queue();
 
+<<<<<<< HEAD
         //Description: Destructor
+=======
+        // Description: Destructor
+>>>>>>> refs/remotes/origin/main
         ~Queue();
 
         // Description: Inserts element x at the back of Queue
