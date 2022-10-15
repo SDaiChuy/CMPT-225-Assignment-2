@@ -24,8 +24,21 @@ class Queue {
         unsigned int frontindex = 0;                    // Index of front element (next dequeued/peeked element)
         unsigned int backindex = 0;                     // Index of where the next element will be enqueued                     
 
-/* You can add private methods. */
+        /* You can add private methods. */
 
+        //Description: check to see if the element count has reached the capacity
+        // if so the resize the array by creating a new array of size 2 times the inital sie
+        // and adding the elements into the new array. Delete the old array at the end
+        int* resize(int* elements);
+
+        //get the capacity to the new capacity
+        void setCapacity(unsigned int newCapacity);
+
+        //set front to the new front
+        void setFront(unsigned int newFront);
+
+        //set the back to the new back
+        void setback(unsigned int newBack);
 
     public:
  
@@ -33,6 +46,9 @@ class Queue {
 
         // Description: Constructor
         Queue();
+
+        //Description: Destructor
+        ~Queue();
 
         // Description: Inserts element x at the back of Queue
         // Time Efficiency: O(1)
